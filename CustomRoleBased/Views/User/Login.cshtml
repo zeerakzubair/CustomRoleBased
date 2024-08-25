@@ -1,0 +1,15 @@
+﻿@model CustomRoleBased.Models.Domain.User
+@{
+}
+<h2>Login</h2>
+<form method="post" action="Login" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">Email Address</label>
+        <input type="email" class="form-control" asp-for="Email">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Password</label>
+        <input type="password" class="form-control" asp-for="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

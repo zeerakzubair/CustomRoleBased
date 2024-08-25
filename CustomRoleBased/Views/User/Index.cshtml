@@ -1,0 +1,23 @@
+﻿@model List<CustomRoleBased.Models.Domain.User>
+@{
+}
+<h2>Users</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>

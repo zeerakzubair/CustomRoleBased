@@ -1,4 +1,5 @@
 using CustomRoleBased.Data;
+using CustomRoleBased.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CustomRoleBased
@@ -14,6 +15,7 @@ namespace CustomRoleBased
             builder.Services.AddDbContext<CustomRoleBasedDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddSingleton<CustomeRoleManager>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

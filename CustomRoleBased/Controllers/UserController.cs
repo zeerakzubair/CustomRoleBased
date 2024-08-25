@@ -12,9 +12,11 @@ namespace CustomRoleBased.Controllers
     {
         private readonly CustomRoleBasedDbContext dbContext;
 
-        public UserController(CustomRoleBasedDbContext dbContext)
+        private readonly CustomeRoleManager roleManger;
+        public UserController(CustomRoleBasedDbContext dbContext, CustomeRoleManager roleManger)
         {
             this.dbContext = dbContext;
+            this.roleManger = roleManger;
         }
 
         public IActionResult Index()
@@ -42,7 +44,10 @@ namespace CustomRoleBased.Controllers
             {
                 if (userInDb.Password == user.Password)
                 {
-                    var userRole = dbContext.UserRoles.FirstOrDefault(x => x.UserId == userInDb.Id);            
+                    var userRole = dbContext.UserRoles.FirstOrDefault(x => x.UserId == userInDb.Id);
+
+                    roleManger.UserId = userRole.UserId;
+                    roleManger.RoleId = userRole.RoleId;
 
                     return RedirectToAction("Index");
                 }
